@@ -15,6 +15,7 @@ use log::info;
 use std::borrow::ToOwned;
 use std::string::String;
 use std::vec::Vec;
+#[cfg(feature = "std")]
 use thiserror::Error;
 
 /// A function identifier for use in the `Module` interface.
@@ -121,29 +122,36 @@ pub struct FunctionDeclaration {
 }
 
 /// Error messages for all `Module` and `Backend` methods
-#[derive(Error, Debug)]
+#[cfg_attr(feature = "std", derive(Error))]
+#[derive(Debug)]
 pub enum ModuleError {
     /// Indicates an identifier was used before it was declared
-    #[error("Undeclared identifier: {0}")]
+    #[cfg_attr(feature = "std", error("Undeclared identifier: {0}"))]
     Undeclared(String),
     /// Indicates an identifier was used as data/function first, but then used as the other
-    #[error("Incompatible declaration of identifier: {0}")]
+    #[cfg_attr(feature = "std", error("Incompatible declaration of identifier: {0}"))]
     IncompatibleDeclaration(String),
     /// Indicates a function identifier was declared with a
     /// different signature than declared previously
-    #[error("Function {0} signature {2:?} is incompatible with previous declaration {1:?}")]
+    #[cfg_attr(
+        feature = "std",
+        error("Function {0} signature {2:?} is incompatible with previous declaration {1:?}")
+    )]
     IncompatibleSignature(String, ir::Signature, ir::Signature),
     /// Indicates an identifier was defined more than once
-    #[error("Duplicate definition of identifier: {0}")]
+    #[cfg_attr(feature = "std", error("Duplicate definition of identifier: {0}"))]
     DuplicateDefinition(String),
     /// Indicates an identifier was defined, but was declared as an import
-    #[error("Invalid to define identifier declared as an import: {0}")]
+    #[cfg_attr(
+        feature = "std",
+        error("Invalid to define identifier declared as an import: {0}")
+    )]
     InvalidImportDefinition(String),
     /// Wraps a `cranelift-codegen` error
-    #[error("Compilation error: {0}")]
+    #[cfg_attr(feature = "std", error("Compilation error: {0}"))]
     Compilation(#[from] CodegenError),
     /// Wraps a generic error from a backend
-    #[error("Backend error: {0}")]
+    #[cfg_attr(feature = "std", error("Backend error: {0}"))]
     Backend(String),
 }
 

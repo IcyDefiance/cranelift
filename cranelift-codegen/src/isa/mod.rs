@@ -66,6 +66,7 @@ use alloc::boxed::Box;
 use alloc::vec::Vec;
 use core::fmt;
 use target_lexicon::{triple, Architecture, PointerWidth, Triple};
+#[cfg(feature = "std")]
 use thiserror::Error;
 
 #[cfg(feature = "riscv")]
@@ -124,14 +125,18 @@ pub fn lookup_by_name(name: &str) -> Result<Builder, LookupError> {
 }
 
 /// Describes reason for target lookup failure
-#[derive(Error, PartialEq, Eq, Copy, Clone, Debug)]
+#[cfg_attr(feature = "std", derive(Error))]
+#[derive(PartialEq, Eq, Copy, Clone, Debug)]
 pub enum LookupError {
     /// Support for this target was disabled in the current build.
-    #[error("Support for this target is disabled")]
+    #[cfg_attr(feature = "std", error("Support for this target is disabled"))]
     SupportDisabled,
 
     /// Support for this target has not yet been implemented.
-    #[error("Support for this target has not been implemented yet")]
+    #[cfg_attr(
+        feature = "std",
+        error("Support for this target has not been implemented yet")
+    )]
     Unsupported,
 }
 

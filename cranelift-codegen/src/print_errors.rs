@@ -9,7 +9,9 @@ use crate::result::CodegenError;
 use crate::verifier::{VerifierError, VerifierErrors};
 use crate::write::{decorate_function, FuncWriter, PlainWriter};
 use alloc::boxed::Box;
-use alloc::string::{String, ToString};
+use alloc::string::String;
+#[cfg(feature = "std")]
+use alloc::string::ToString;
 use alloc::vec::Vec;
 use core::fmt;
 use core::fmt::Write;

@@ -17,6 +17,7 @@ use cranelift_codegen::ir::{self, InstBuilder};
 use cranelift_codegen::isa::TargetFrontendConfig;
 use cranelift_frontend::FunctionBuilder;
 use std::boxed::Box;
+#[cfg(feature = "std")]
 use thiserror::Error;
 use wasmparser::BinaryReaderError;
 use wasmparser::Operator;
@@ -42,13 +43,14 @@ pub enum GlobalVariable {
 ///
 /// When a WebAssembly function can't be translated, one of these error codes will be returned
 /// to describe the failure.
-#[derive(Error, Debug)]
+#[cfg_attr(feature = "std", derive(Error))]
+#[derive(Debug)]
 pub enum WasmError {
     /// The input WebAssembly code is invalid.
     ///
     /// This error code is used by a WebAssembly translator when it encounters invalid WebAssembly
     /// code. This should never happen for validated WebAssembly code.
-    #[error("Invalid input WebAssembly code at offset {offset}: {message}")]
+    #[cfg_attr(feature = "std", error("Invalid input WebAssembly code at offset {offset}: {message}"))]
     InvalidWebAssembly {
         /// A string describing the validation error.
         message: &'static str,
@@ -59,7 +61,7 @@ pub enum WasmError {
     /// A feature used by the WebAssembly code is not supported by the embedding environment.
     ///
     /// Embedding environments may have their own limitations and feature restrictions.
-    #[error("Unsupported feature: {0}")]
+    #[cfg_attr(feature = "std", error("Unsupported feature: {0}"))]
     Unsupported(std::string::String),
 
     /// An implementation limit was exceeded.
@@ -68,11 +70,11 @@ pub enum WasmError {
     /// limits][limits] that cause compilation to fail when they are exceeded.
     ///
     /// [limits]: https://cranelift.readthedocs.io/en/latest/ir.html#implementation-limits
-    #[error("Implementation limit exceeded")]
+    #[cfg_attr(feature = "std", error("Implementation limit exceeded"))]
     ImplLimitExceeded,
 
     /// Any user-defined error.
-    #[error("User error: {0}")]
+    #[cfg_attr(feature = "std", error("User error: {0}"))]
     User(std::string::String),
 }
 
