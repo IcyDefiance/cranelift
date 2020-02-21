@@ -67,7 +67,7 @@
 use crate::cursor::{Cursor, CursorPosition, FuncCursor};
 use crate::flowgraph::{BlockPredecessor, ControlFlowGraph};
 use crate::ir::{self, Block, Inst, InstBuilder, InstructionData, Opcode, Type, Value, ValueDef};
-use alloc::vec::Vec;
+use std::vec::Vec;
 use core::iter;
 use smallvec::SmallVec;
 

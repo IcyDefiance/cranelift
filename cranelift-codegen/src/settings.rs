@@ -22,10 +22,10 @@
 
 use crate::constant_hash::{probe, simple_hash};
 use crate::isa::TargetIsa;
-use alloc::boxed::Box;
-use alloc::string::{String, ToString};
 use core::fmt;
 use core::str;
+use std::boxed::Box;
+use std::string::{String, ToString};
 use thiserror::Error;
 
 /// A string-based configurator for settings groups.
@@ -369,7 +369,7 @@ mod tests {
     use super::Configurable;
     use super::SetError::*;
     use super::{builder, Flags};
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn display_default() {

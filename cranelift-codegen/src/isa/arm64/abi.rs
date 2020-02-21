@@ -5,7 +5,7 @@ use crate::ir;
 use crate::isa::RegClass;
 use crate::regalloc::RegisterSet;
 use crate::settings as shared_settings;
-use alloc::borrow::Cow;
+use std::borrow::Cow;
 
 /// Legalize `sig`.
 pub fn legalize_signature(

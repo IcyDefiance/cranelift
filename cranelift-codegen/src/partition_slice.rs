@@ -53,7 +53,7 @@ where
 #[cfg(test)]
 mod tests {
     use super::partition_slice;
-    use alloc::vec::Vec;
+    use std::vec::Vec;
 
     fn check(x: &[u32], want: &[u32]) {
         assert_eq!(x.len(), want.len());

@@ -13,8 +13,8 @@ use crate::isa::{RegInfo, TargetIsa};
 use crate::packed_option::ReservedValue;
 use crate::value_label::ValueLabelsRanges;
 use crate::HashSet;
-use alloc::string::String;
-use alloc::vec::Vec;
+use std::string::String;
+use std::vec::Vec;
 use core::fmt::{self, Write};
 
 /// A `FuncWriter` used to decorate functions during printing.
@@ -759,7 +759,7 @@ mod tests {
     use crate::cursor::{Cursor, CursorPosition, FuncCursor};
     use crate::ir::types;
     use crate::ir::{ExternalName, Function, InstBuilder, StackSlotData, StackSlotKind};
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn basic() {

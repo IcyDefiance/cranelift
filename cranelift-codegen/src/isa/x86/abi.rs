@@ -22,8 +22,8 @@ use crate::isa::{CallConv, RegClass, RegUnit, TargetIsa};
 use crate::regalloc::RegisterSet;
 use crate::result::CodegenResult;
 use crate::stack_layout::layout_stack;
-use alloc::borrow::Cow;
 use core::i32;
+use std::borrow::Cow;
 use std::boxed::Box;
 use target_lexicon::{PointerWidth, Triple};
 

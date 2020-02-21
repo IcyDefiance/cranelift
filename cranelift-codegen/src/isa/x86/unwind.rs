@@ -4,7 +4,7 @@ use super::registers::RU;
 use crate::binemit::FrameUnwindSink;
 use crate::ir::{Function, InstructionData, Opcode};
 use crate::isa::{CallConv, RegUnit, TargetIsa};
-use alloc::vec::Vec;
+use std::vec::Vec;
 use byteorder::{ByteOrder, LittleEndian};
 
 /// Maximum (inclusive) size of a "small" stack allocation

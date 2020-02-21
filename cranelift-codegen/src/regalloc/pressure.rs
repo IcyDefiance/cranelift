@@ -276,9 +276,9 @@ mod tests {
     use super::Pressure;
     use crate::isa::{RegClass, TargetIsa};
     use crate::regalloc::RegisterSet;
-    use alloc::boxed::Box;
     use core::borrow::Borrow;
     use core::str::FromStr;
+    use std::boxed::Box;
     use target_lexicon::triple;
 
     // Make an arm32 `TargetIsa`, if possible.

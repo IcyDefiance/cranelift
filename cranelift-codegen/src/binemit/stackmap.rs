@@ -1,7 +1,7 @@
 use crate::bitset::BitSet;
 use crate::ir;
 use crate::isa::TargetIsa;
-use alloc::vec::Vec;
+use std::vec::Vec;
 
 type Num = u32;
 const NUM_BITS: usize = core::mem::size_of::<Num>() * 8;
@@ -53,7 +53,7 @@ impl Stackmap {
         let word_size = isa.pointer_bytes() as usize;
         let num_words = map_size / word_size;
 
-        let mut vec = alloc::vec::Vec::with_capacity(num_words);
+        let mut vec = std::vec::Vec::with_capacity(num_words);
         vec.resize(num_words, false);
 
         for (ss, ssd) in stack.iter() {

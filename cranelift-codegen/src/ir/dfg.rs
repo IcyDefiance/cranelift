@@ -14,7 +14,7 @@ use crate::isa::TargetIsa;
 use crate::packed_option::ReservedValue;
 use crate::write::write_operands;
 use crate::HashMap;
-use alloc::vec::Vec;
+use std::vec::Vec;
 use core::fmt;
 use core::iter;
 use core::mem;
@@ -1111,7 +1111,7 @@ mod tests {
     use crate::cursor::{Cursor, FuncCursor};
     use crate::ir::types;
     use crate::ir::{Function, InstructionData, Opcode, TrapCode};
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn make_inst() {

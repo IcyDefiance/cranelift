@@ -61,9 +61,9 @@ use crate::result::CodegenResult;
 use crate::settings;
 use crate::settings::SetResult;
 use crate::timing;
-use alloc::borrow::Cow;
-use alloc::boxed::Box;
 use core::fmt;
+use std::borrow::Cow;
+use std::boxed::Box;
 use target_lexicon::{triple, Architecture, PointerWidth, Triple};
 use thiserror::Error;
 
@@ -118,7 +118,7 @@ pub fn lookup(triple: Triple) -> Result<Builder, LookupError> {
 /// Look for a supported ISA with the given `name`.
 /// Return a builder that can create a corresponding `TargetIsa`.
 pub fn lookup_by_name(name: &str) -> Result<Builder, LookupError> {
-    use alloc::str::FromStr;
+    use std::str::FromStr;
     lookup(triple!(name))
 }
 

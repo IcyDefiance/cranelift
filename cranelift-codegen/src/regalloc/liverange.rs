@@ -476,8 +476,8 @@ mod tests {
     use crate::entity::EntityRef;
     use crate::ir::{Block, Inst, Value};
     use crate::ir::{ExpandedProgramPoint, ProgramOrder};
-    use alloc::vec::Vec;
     use core::cmp::Ordering;
+    use std::vec::Vec;
 
     // Dummy program order which simply compares indexes.
     // It is assumed that blocks have indexes that are multiples of 10, and instructions have indexes

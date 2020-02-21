@@ -15,9 +15,9 @@ use crate::isa::enc_tables::{lookup_enclist, Encodings};
 use crate::isa::Builder as IsaBuilder;
 use crate::isa::{EncInfo, RegClass, RegInfo, TargetIsa};
 use crate::regalloc;
-use alloc::borrow::Cow;
-use alloc::boxed::Box;
 use core::fmt;
+use std::borrow::Cow;
+use std::boxed::Box;
 use target_lexicon::Triple;
 
 #[allow(dead_code)]

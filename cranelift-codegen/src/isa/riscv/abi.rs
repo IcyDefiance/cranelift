@@ -11,8 +11,8 @@ use crate::abi::{legalize_args, ArgAction, ArgAssigner, ValueConversion};
 use crate::ir::{self, AbiParam, ArgumentExtension, ArgumentLoc, ArgumentPurpose, Type};
 use crate::isa::RegClass;
 use crate::regalloc::RegisterSet;
-use alloc::borrow::Cow;
 use core::i32;
+use std::borrow::Cow;
 use target_lexicon::Triple;
 
 struct Args {

@@ -7,9 +7,9 @@
 
 use crate::ir::{ArgumentLoc, ExternalName, SigRef, Type};
 use crate::isa::{CallConv, RegInfo, RegUnit};
-use alloc::vec::Vec;
 use core::fmt;
 use core::str::FromStr;
+use std::vec::Vec;
 
 /// Function signature.
 ///
@@ -382,7 +382,7 @@ impl fmt::Display for ExtFuncData {
 mod tests {
     use super::*;
     use crate::ir::types::{B8, F32, I32};
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn argument_type() {

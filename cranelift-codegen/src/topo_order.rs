@@ -3,7 +3,7 @@
 use crate::dominator_tree::DominatorTree;
 use crate::entity::EntitySet;
 use crate::ir::{Block, Layout};
-use alloc::vec::Vec;
+use std::vec::Vec;
 
 /// Present blocks in a topological order such that all dominating blocks are guaranteed to be visited
 /// before the current block.

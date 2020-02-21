@@ -3,13 +3,13 @@
 use crate::binemit::{FrameUnwindOffset, FrameUnwindSink, Reloc};
 use crate::ir::{FrameLayoutChange, Function};
 use crate::isa::{CallConv, RegUnit, TargetIsa};
-use alloc::vec::Vec;
 use core::convert::TryInto;
 use gimli::write::{
     Address, CallFrameInstruction, CommonInformationEntry, EhFrame, EndianVec,
     FrameDescriptionEntry, FrameTable, Result, Writer,
 };
 use gimli::{Encoding, Format, LittleEndian, Register, X86_64};
+use std::vec::Vec;
 
 pub type FDERelocEntry = (FrameUnwindOffset, Reloc);
 

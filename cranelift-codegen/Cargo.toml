@@ -22,7 +22,7 @@ log = { version = "0.4.6", default-features = false }
 serde = { version = "1.0.94", features = ["derive"], optional = true }
 gimli = { version = "0.20.0", default-features = false, features = ["write"], optional = true }
 smallvec = { version = "1.0.0" }
-thiserror = "1.0.4"
+thiserror = { git = "https://github.com/IcyDefiance/thiserror", default-features = false }
 byteorder = { version = "1.3.2", default-features = false }
 # It is a goal of the cranelift-codegen crate to have minimal external dependencies.
 # Please don't add any unless they are essential to the task of creating binary
@@ -38,7 +38,7 @@ default = ["std", "unwind"]
 # The "std" feature enables use of libstd. The "core" feature enables use
 # of some minimal std-like replacement libraries. At least one of these two
 # features need to be enabled.
-std = []
+std = ["thiserror/std"]
 
 # The "core" features enables use of "hashbrown" since core doesn't have
 # a HashMap implementation, and a workaround for Cargo #4866.

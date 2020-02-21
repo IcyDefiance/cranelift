@@ -255,7 +255,7 @@ impl fmt::Display for RegisterSet {
 mod tests {
     use super::*;
     use crate::isa::registers::{RegClass, RegClassData};
-    use alloc::vec::Vec;
+    use std::vec::Vec;
 
     // Register classes for testing.
     const GPR: RegClass = &RegClassData {

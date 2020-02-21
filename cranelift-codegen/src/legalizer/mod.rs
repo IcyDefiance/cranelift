@@ -21,8 +21,8 @@ use crate::ir::{self, InstBuilder, MemFlags};
 use crate::isa::TargetIsa;
 use crate::predicates;
 use crate::timing;
-use alloc::collections::BTreeSet;
-use alloc::vec::Vec;
+use std::collections::BTreeSet;
+use std::vec::Vec;
 
 mod boundary;
 mod call;
@@ -380,7 +380,7 @@ fn expand_br_table_conds(
     let table_size = func.jump_tables[table].len();
     let mut cond_failed_block = vec![];
     if table_size >= 1 {
-        cond_failed_block = alloc::vec::Vec::with_capacity(table_size - 1);
+        cond_failed_block = std::vec::Vec::with_capacity(table_size - 1);
         for _ in 0..table_size - 1 {
             cond_failed_block.push(func.dfg.make_block());
         }

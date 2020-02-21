@@ -214,7 +214,7 @@ mod tests {
     use super::*;
     use crate::cursor::{Cursor, FuncCursor};
     use crate::ir::{types, Function, InstBuilder};
-    use alloc::vec::Vec;
+    use std::vec::Vec;
 
     #[test]
     fn empty() {

@@ -4,9 +4,9 @@
 //! The actual table of destinations is stored in a `JumpTableData` struct defined in this module.
 
 use crate::ir::entities::Block;
-use alloc::vec::Vec;
 use core::fmt::{self, Display, Formatter};
 use core::slice::{Iter, IterMut};
+use std::vec::Vec;
 
 /// Contents of a jump table.
 ///
@@ -85,7 +85,7 @@ mod tests {
     use super::JumpTableData;
     use crate::entity::EntityRef;
     use crate::ir::Block;
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn empty() {

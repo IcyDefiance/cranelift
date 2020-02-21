@@ -73,12 +73,12 @@ use crate::iterators::IteratorExtras;
 use crate::print_errors::pretty_verifier_error;
 use crate::settings::FlagsOrIsa;
 use crate::timing;
-use alloc::collections::BTreeSet;
-use alloc::string::{String, ToString};
-use alloc::vec::Vec;
 use core::cmp::Ordering;
 use core::fmt::{self, Display, Formatter, Write};
 use log::debug;
+use std::collections::BTreeSet;
+use std::string::{String, ToString};
+use std::vec::Vec;
 use thiserror::Error;
 
 pub use self::cssa::verify_cssa;

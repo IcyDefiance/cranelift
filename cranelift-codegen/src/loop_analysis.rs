@@ -9,7 +9,7 @@ use crate::flowgraph::{BlockPredecessor, ControlFlowGraph};
 use crate::ir::{Block, Function, Layout};
 use crate::packed_option::PackedOption;
 use crate::timing;
-use alloc::vec::Vec;
+use std::vec::Vec;
 
 /// A opaque reference to a code loop.
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
@@ -237,7 +237,7 @@ mod tests {
     use crate::flowgraph::ControlFlowGraph;
     use crate::ir::{types, Function, InstBuilder};
     use crate::loop_analysis::{Loop, LoopAnalysis};
-    use alloc::vec::Vec;
+    use std::vec::Vec;
 
     #[test]
     fn nested_loops_detection() {

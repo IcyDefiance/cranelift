@@ -11,13 +11,13 @@
 use crate::ir::immediates::{IntoBytes, V128Imm};
 use crate::ir::Constant;
 use crate::HashMap;
-use alloc::collections::BTreeMap;
-use alloc::vec::Vec;
 use core::fmt;
 use core::iter::FromIterator;
 use core::slice::Iter;
 use core::str::{from_utf8, FromStr};
 use cranelift_entity::EntityRef;
+use std::collections::BTreeMap;
+use std::vec::Vec;
 
 /// This type describes the actual constant data. Note that the bytes stored in this structure are
 /// expected to be in little-endian order; this is due to ease-of-use when interacting with

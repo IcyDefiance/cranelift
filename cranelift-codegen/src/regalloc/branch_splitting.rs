@@ -2,7 +2,7 @@
 //!
 //! One of the reason for splitting edges is to be able to insert `copy` and `regmove` instructions
 //! between a conditional branch and the following terminator.
-use alloc::vec::Vec;
+use std::vec::Vec;
 
 use crate::cursor::{Cursor, EncCursor};
 use crate::dominator_tree::DominatorTree;

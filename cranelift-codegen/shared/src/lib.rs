@@ -19,6 +19,14 @@
         clippy::use_self
     )
 )]
+#![no_std]
+
+#[cfg(not(feature = "std"))]
+#[macro_use]
+extern crate alloc as std;
+#[cfg(feature = "std")]
+#[macro_use]
+extern crate std;
 
 pub mod condcodes;
 pub mod constant_hash;

@@ -6,7 +6,7 @@ use crate::ir::instructions::BranchInfo;
 use crate::ir::{Block, ExpandedProgramPoint, Function, Inst, Layout, ProgramOrder, Value};
 use crate::packed_option::PackedOption;
 use crate::timing;
-use alloc::vec::Vec;
+use std::vec::Vec;
 use core::cmp;
 use core::cmp::Ordering;
 use core::mem;

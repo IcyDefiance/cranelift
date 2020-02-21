@@ -40,10 +40,9 @@
 )]
 #![no_std]
 
-#[allow(unused_imports)] // #[macro_use] is required for no_std
+#[cfg(not(feature = "std"))]
 #[macro_use]
-extern crate alloc;
-
+extern crate alloc as std;
 #[cfg(feature = "std")]
 #[macro_use]
 extern crate std;

@@ -6,12 +6,12 @@
 use crate::entity::{Iter, IterMut, Keys, PrimaryMap};
 use crate::ir::{StackSlot, Type};
 use crate::packed_option::PackedOption;
-use alloc::vec::Vec;
 use core::cmp;
 use core::fmt;
 use core::ops::{Index, IndexMut};
 use core::slice;
 use core::str::FromStr;
+use std::vec::Vec;
 
 #[cfg(feature = "enable-serde")]
 use serde::{Deserialize, Serialize};
@@ -365,7 +365,7 @@ mod tests {
     use super::*;
     use crate::ir::types;
     use crate::ir::Function;
-    use alloc::string::ToString;
+    use std::string::ToString;
 
     #[test]
     fn stack_slot() {
